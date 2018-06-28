@@ -40,7 +40,6 @@ Content-type: application/json;charset=utf-8
 首先生成签名原串， 如示例工程```lib```目录下```llpay_core.function.php```的```createLinkstring()```方法:
 
 ```php
-<?php
 /**
  * 把数组所有元素，按照“参数=参数值”的模式用“&”字符拼接成字符串
  * @param $para 需要拼接的数组
@@ -59,14 +58,12 @@ function createLinkstring($para) {
 	//file_put_contents("log.txt","转义后:".$arg."\n", FILE_APPEND);
 	return $arg;
 }
-?>
 ```
 
 
 加签时，使用示例工程```lib```目录下```llpay_rsa.function.php```的```Rsasign```方法进行加签，其中```priKey```即为您的私钥，```data```为签名原串：
 
 ```php
-<?php
 /********************************************************************************/
 
 /**RSA签名
@@ -91,13 +88,11 @@ function Rsasign($data,$priKey) {
 	//file_put_contents("log.txt","签名原串:".$data."\n", FILE_APPEND);
     return $sign;
 }
-?>
 ```
 
 验签时，使用示例工程```lib```目录下```llpay_rsa.function.php```的```Rsaverify```方法进行验签，其中```sign```连连向您发送的请求报文中的签名值，```data```为签名原串， ```pubKey```为连连向您提供的公钥：
 
 ```php
-<?php
 /********************************************************************************/
 
 /**RSA验签
@@ -122,7 +117,6 @@ function Rsaverify($data, $sign)  {
 	//返回资源是否成功
     return $result;
 }
-?>
 ```
 
 ## 延伸阅读
